@@ -6,9 +6,6 @@ function buildTable(arr) {
     var tbody = d3.select("tbody");
     arr.forEach((ufo) => {
         var row = tbody.append("tr");
-        // Object.entries(ufo).forEach(([key, value]) => {
-        // var cell = row.append("td");
-        // cell.text(value);
         dict_value = Object.values(ufo);
         dict_value.forEach(value => {
             var cell = row.append("td");
@@ -17,17 +14,6 @@ function buildTable(arr) {
     });
 
 }
-
-buildTable(tableData);
-
-// function buildNewTable (filteredData) {
-//     var tbody = d3.select("tbody");
-//     var new_tbody = document.createElement('tbody');
-//     populate_with_new_rows(new_tbody);
-//     old_tbody.parentNode.replaceChild(new_tbody, old_tbody);
-
-
-// }
 
 function filterData() {
     d3.event.preventDefault();
@@ -45,6 +31,7 @@ function filterData() {
 
 }
 
+buildTable(tableData);
 var button = d3.select("#filter-btn");
 button.on("click", filterData);
 
